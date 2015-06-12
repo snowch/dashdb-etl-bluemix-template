@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+
+
+jar {
+    baseName = 'ETL_Service'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile("org.codehaus.groovy:groovy-all:2.2.1")
+    compile("org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE")
+    compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.1")
+
+    // DB2 jdbc jar is in libs folder:
+    compile name: 'db2jcc4'
+}
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '2.0'
+}
