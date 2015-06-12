@@ -57,8 +57,9 @@ There are some utility scripts in the `./util` folder.
 cd util
 
 # example script that loads a date dimension table from a csv file
-# (needs groovy installed)
+# (needs groovy installed and the dashDB env vars set)
 
+source env_vars.sh
 ./load_date_dimension.groovy
 
 # R script to dump the length (num chars) of each CSV field
