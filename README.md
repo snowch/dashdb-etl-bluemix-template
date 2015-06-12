@@ -9,7 +9,7 @@ Copy your db2 jdbc jar `db2jcc4.jar` to the `./libs` folder
 
 ### Building
 
-Edit the cron and follow the instructions below to execute:
+Execute the instruction below to execute:
 
 ```
 ./gradlew build
