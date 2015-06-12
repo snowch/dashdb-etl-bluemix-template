@@ -9,7 +9,7 @@ Copy your db2 jdbc jar `db2jcc4.jar` to the `./libs` folder
 
 ### Building
 
-Execute the instruction below to execute:
+Execute the instruction below to build:
 
 ```
 ./gradlew build
