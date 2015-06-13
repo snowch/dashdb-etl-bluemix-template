@@ -78,7 +78,7 @@ public class EtlController {
             INSERT INTO "SUMMARY_TABLE" 
             ( 
                 SELECT
-                    SDP."DATE",
+                    SDP."TIME",
                     MAX(DECODE(SDP."TYPE", 'temperature', SDP."READING")) AS TEMPERATURE,
                     MAX(DECODE(SDP."TYPE", 'airhumidity', SDP."READING")) AS AIRHUMIDITY,
                     MAX(DECODE(SDP."TYPE", 'windspeed',   SDP."READING")) AS WINDSPEED
