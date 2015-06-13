@@ -79,9 +79,9 @@ public class EtlController {
             ( 
                 SELECT
                     SDP."DATE",
-                    MAX(DECODE(SDP."Type", 'temperature',          SDP."Value")) AS temperature,
-                    MAX(DECODE(SDP."Type", 'airhumidity',          SDP."Value")) AS airhumidity,
-                    MAX(DECODE(SDP."Type", 'windspeed',            SDP."Value")) AS windspeed
+                    MAX(DECODE(SDP."TYPE", 'temperature', SDP."READING")) AS TEMPERATURE,
+                    MAX(DECODE(SDP."TYPE", 'airhumidity', SDP."READING")) AS AIRHUMIDITY,
+                    MAX(DECODE(SDP."TYPE", 'windspeed',   SDP."READING")) AS WINDSPEED
                 FROM
                     "SDP_POPULATED_TABLE" SDP
                WHERE
