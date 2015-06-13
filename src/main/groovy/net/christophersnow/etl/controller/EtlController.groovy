@@ -54,7 +54,7 @@ public class EtlController {
             SDP_POPULATED_TABLE
             ===================
             
-            DATE              | TYPE          | READING
+            TIME              | TYPE          | READING
             ------------------+---------------+---------
             20150101T00:00:00 | temperature   | 21
             20150101T00:00:00 | windspeed     | 15
@@ -66,7 +66,7 @@ public class EtlController {
             SUMMARY_TABLE
             =============
             
-            DATE              | TEMPERATURE   | WINDSPEED    | AIRHUMIDITY
+            TIME              | TEMPERATURE   | WINDSPEED    | AIRHUMIDITY
             ------------------+---------------+--------------+-------------
             20150101T00:00:00 | 21            | 15           | -
             20150101T00:00:10 | 22            | -            | 51
@@ -85,15 +85,15 @@ public class EtlController {
                 FROM
                     "SDP_POPULATED_TABLE" SDP
                WHERE
-                    SDP."DATE" = '${date}' 
+                    SDP."TIME" = '${time}' 
                GROUP BY
-                    SDP."DATE"
+                    SDP."TIME"
             )
             """
             sql.execute cmd.toString()
         
             cmd = """
-              DELETE FROM "SDP_POPULATED_TABLE" SDP WHERE SDP."DATE" = '${date}' 
+              DELETE FROM "SDP_POPULATED_TABLE" SDP WHERE SDP."TIME" = '${time}' 
               """
             sql.execute cmd.toString()
         */
