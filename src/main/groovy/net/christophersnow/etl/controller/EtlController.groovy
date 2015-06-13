@@ -48,7 +48,8 @@ public class EtlController {
     @Scheduled(cron = "0 30 2 * * *")
     def void schedule() {
         /*
-            Put ETL code in here that needs to run periodically, for example the following code 'flattens' this dashDB table:
+            Put ETL code in here that needs to run periodically, for example the following
+            code 'flattens' this dashDB table ...
             
             SDP_POPULATED_TABLE
             ===================
@@ -60,7 +61,7 @@ public class EtlController {
             20150101T00:00:10 | airhumidity   | 51
             20150101T00:00:10 | temperature   | 22
             
-            To this structure:
+            ... to this table ...
             
             SUMMARY_TABLE
             =============
