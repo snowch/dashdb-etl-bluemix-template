@@ -47,7 +47,34 @@ public class EtlController {
 
     @Scheduled(cron = "0 30 2 * * *")
     def void schedule() {
-        // put ETL code in here that needs to run periodically
+        /*
+            Put ETL code in here that needs to run periodically, for example:
+            
+            def date = selectNextDateToASummarise() // 
+        
+            def cmd = """
+            INSERT INTO "SUMMARY_TABLE" 
+            ( 
+                SELECT
+                    SDP."DATE",
+                    MAX(DECODE(SDP."Type", 'temperature',          SDP."Value")) AS temperature,
+                    MAX(DECODE(SDP."Type", 'airhumidity',          SDP."Value")) AS airhumidity,
+                    MAX(DECODE(SDP."Type", 'windspeed',            SDP."Value")) AS windspeed
+                FROM
+                    "SDP_POPULATED_TABLE" SDP
+               WHERE
+                    SDP."DATE" = '${date}' 
+               GROUP BY
+                    SDP."DATE"
+            )
+        """
+        sql.execute cmd.toString()
+        
+        cmd = """
+              DELETE FROM "SDP_POPULATED_TABLE" SDP WHERE SDP."DATE" = '${date}' 
+              """
+        sql.execute cmd.toString()
+        */
     }
 
 }
