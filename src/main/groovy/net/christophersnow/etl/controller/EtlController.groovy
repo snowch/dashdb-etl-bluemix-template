@@ -89,13 +89,13 @@ public class EtlController {
                GROUP BY
                     SDP."DATE"
             )
-        """
-        sql.execute cmd.toString()
+            """
+            sql.execute cmd.toString()
         
-        cmd = """
+            cmd = """
               DELETE FROM "SDP_POPULATED_TABLE" SDP WHERE SDP."DATE" = '${date}' 
               """
-        sql.execute cmd.toString()
+            sql.execute cmd.toString()
         */
     }
 
