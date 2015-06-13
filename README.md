@@ -7,10 +7,12 @@ The app contains one controller that interacts with DashDB that queries dashDB. 
 
 Edit the class [EtlController](./src/main/groovy/net/christophersnow/etl/controller/EtlController.groovy).  You can see there are currently two methods:
 
-- greeting(): this method is initiated when the application is running and you access the root url (e.g. http://localhost:8080/).  The example code in this method connects to dashDB and returns a count of the rows in the table populated by the SDP.  At the end of the method a view temlate called 'greeting' is rendered.  The view is passed the model data `row_count` value.  The view code is [here](./src/main/resources/templates/greeting.html)
+- greeting(): this method is initiated when the application is running and you access the root url (e.g. http://localhost:8080/).  The example code in this method connects to dashDB and returns a count of the rows in the table populated by the SDP.  The row count is stored in the variable `row_count`.  At the end of the method a view template called 'greeting' is rendered.  The view is passed the `row_count` value.  The view code is [here](./src/main/resources/templates/greeting.html)
 - schedule(): this method will get fired by the cron timer.  Put code in here that you want to be run every time the timer fires.
 
-Take a look at the [Groovy SQL documentation](http://docs.groovy-lang.org/latest/html/api/groovy/sql/Sql.html) for more sql examples.
+Reference:
+- The [Groovy SQL documentation](http://docs.groovy-lang.org/latest/html/api/groovy/sql/Sql.html) provides many more sql code examples.
+- The [Thymeleaf documentation](http://www.thymeleaf.org/documentation.html) provides more information on creating view templates.
 
 ### Setup
 
