@@ -3,6 +3,13 @@ ETL Service
 
 The app contains one controller that interacts with DashDB that queries dashDB.  There is also a method where you can put code to run on a cron schedule.
 
+### Development
+
+Edit the class [EtlController](./src/main/groovy/net/christophersnow/etl/controller/EtlController.groovy).  You can see there are currently two methods:
+
+- greeting(): this method is initiated when the application is running and you access the root url (e.g. http://localhost:8080/).  The example code in this method connects to dashDB and returns a count of the rows in the table populated by the SDP.  Take a look at the [Groovy SQL documentation](http://docs.groovy-lang.org/latest/html/api/groovy/sql/Sql.html) for more sql examples.
+- schedule(): this method will get fired by the cron timer.  Put code in here that you want to be run every time the timer fires.
+
 ### Setup
 
 Copy your db2 jdbc jar `db2jcc4.jar` to the `./libs` folder
