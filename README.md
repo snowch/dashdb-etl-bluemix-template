@@ -52,7 +52,7 @@ Hit the url http://localhost:8080 to execute the controller method
 
 To push to bluemix:
 ```
-cf logic -u cf_username -p cf_password
+cf login -u cf_username -p cf_password
 
 cf set-env $cf_app_name db_url $db_url 
 cf set-env $cf_app_name db_username $db_username
